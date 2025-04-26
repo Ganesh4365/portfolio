@@ -9,6 +9,10 @@
     --border-color: rgba(0, 255, 255, 0.3);
     --shadow-cyan: 0 0 5px var(--primary-color), 0 0 15px var(--primary-color), 0 0 30px var(--primary-color);
     --shadow-green: 0 0 5px var(--secondary-color), 0 0 15px var(--secondary-color), 0 0 30px var(--secondary-color);
+    --primary-color: #4a90e2; /* Soft blue */
+    --secondary-color: #50e3c2; /* Soft green */
+    --background-color: #f5f7fa; /* Light background */
+    --shadow-cyan: 0 4px 8px rgba(0, 255, 255, 0.1);
 }
 
 * {
@@ -346,6 +350,60 @@ body::before {
 }
 
 .project-card {
+    background: linear-gradient(135deg, #4a90e2 0%, #50e3c2 100%); /* Vibrant blue-green gradient */
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(80, 227, 194, 0.25), 0 2px 8px rgba(74, 144, 226, 0.18);
+    border: 2px solid #4a90e2;
+    padding: 2rem 1.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: -40px; left: -40px; right: -40px; bottom: -40px;
+    background: radial-gradient(circle at 60% 40%, rgba(255,255,255,0.08) 0%, rgba(80,227,194,0.05) 100%);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.project-card:hover {
+    transform: translateY(-8px) scale(1.04);
+    box-shadow: 0 16px 40px rgba(80, 227, 194, 0.35), 0 4px 16px rgba(74, 144, 226, 0.22);
+    border-color: #50e3c2;
+    z-index: 10;
+}
+
+.project-card h3 {
+    color: #fff;
+    margin-bottom: 0.8rem;
+    text-shadow: 0 2px 8px rgba(74, 144, 226, 0.25);
+    position: relative;
+    z-index: 1;
+}
+
+.project-link {
+    display: inline-block;
+    margin-top: 1rem;
+    color: #007bff; /* Blue color for links */
+    text-decoration: none;
+    font-weight: bold;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.project-link:hover {
+    border-color: #0056b3; /* Darker blue on hover */
+    color: #0056b3;
+}
+.project-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(0, 255, 0, 0.25);
+    position: relative;
+    z-index: 10;
+}
     background-color: #333; /* Slightly lighter card background */
     padding: 1.5rem;
     border-radius: 10px;
